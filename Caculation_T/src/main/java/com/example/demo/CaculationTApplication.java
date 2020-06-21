@@ -15,33 +15,26 @@ import org.springframework.web.servlet.ModelAndView;
 @SpringBootApplication
 public class CaculationTApplication {
 	
-	@RequestMapping("/result1/{value1}/{sachi}/{value2}")
+	@RequestMapping("/index1/{value1}/{sachi}/{value2}")
 	public String result(@PathVariable String value1,@PathVariable String sachi,@PathVariable String value2,Model model) {
 		
-		System.out.println(value1+"  "+sachi+"  "+value2);
-		int res= Integer.parseInt(value1)+Integer.parseInt(value2);
-
-		if(sachi.equals("+")) {
-			System.out.println("덧셈");
-		}else if(sachi.equals("-")){
-			System.out.println("뺄셈");
-			return "/index.html";
-		}else if(sachi.equals("*")) {
-			System.out.println("곱셈");
-			return "/index.html";
-		}else if(sachi.equals("/")) {
-			System.out.println("나눗셈");
-			return "/index.html";
-		}
+		
 		
 		if(sachi=="+") {
-			
+			int res= Integer.parseInt(value1)+Integer.parseInt(value2);
 			return "/result.html";
-		}else {
-			
-			System.out.println(res);
+		}else if(sachi=="-"){
+			int res= Integer.parseInt(value1)-Integer.parseInt(value2);
 			model.addAttribute("res",res);
 			System.out.println(model.getAttribute("res"));
+			return "/index.html";
+		}else if(sachi=="*"){
+			int res= Integer.parseInt(value1)*Integer.parseInt(value2);
+			model.addAttribute("res",res);
+			return "/index.html";
+		}else if(sachi=="/"){
+			int res= Integer.parseInt(value1)/Integer.parseInt(value2);
+			model.addAttribute("res",res);
 			return "/index.html";
 		}
 	}
@@ -52,8 +45,5 @@ public class CaculationTApplication {
 		return "/index.html";
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(CaculationTApplication.class, args);
-	}
 
 }

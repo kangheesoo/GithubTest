@@ -6,32 +6,11 @@ public class Threadtest extends Thread{
    
    static int value = 10;
    int threadvalue=0;
-   
-   public synchronized void run() {
-	   value =threadvalue;
-	   System.out.println(value);
-    
-   }
+  
    
    public static void main(String[] args) throws InterruptedException {
 
-      
-    Threadtest thread_1= new Threadtest();
-    Threadtest thread_2= new Threadtest();
-    Threadtest thread_3= new Threadtest();
-    
-    thread_1.threadvalue=13;
-    thread_2.threadvalue=16;
-    thread_3.threadvalue=17;
-    
-    thread_1.start();
-    thread_1.join();
-    thread_2.start();
-    thread_2.join();
-    thread_3.start();
-
-	   
-	   ExecutorService executor = Executors.newFixedThreadPool(3);
+       ExecutorService executor = Executors.newFixedThreadPool(3);
 
        executor.submit(() -> {
            value=13;

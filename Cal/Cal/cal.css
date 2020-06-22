@@ -1,0 +1,76 @@
+
+
+body{
+    margin: 0 auto;
+    margin-top: 100px;
+
+}
+#header{
+    width: 1500px;
+    height: 30px;
+    margin: 0 auto;
+    padding-left: 346px;
+  
+
+}
+
+
+#main{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 1600px;
+    height: auto;
+    overflow: hidden ;
+    border:2px solid black;
+
+}
+#now_date{
+    margin: 0 auto;
+    margin-left: 430px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#now_date >h2{
+    text-align: center;
+    display: inline;
+}
+
+#left_section{
+    float: left;
+    height: auto;
+
+}
+
+#img_div{
+    margin: 0 auto;
+    margin-top: 30px;
+
+    width: 300px;
+    height: auto;
+    text-align: center;
+}
+#img_div >img{
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+}
+
+#pre_img{
+    transform: rotate(180deg);
+}
+
+#select_day_div{
+    float: left;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 50px;
+
+}
+#right_aside{
+    float: right;
+    width: 500px;
+    height: 100px;
+    
+}

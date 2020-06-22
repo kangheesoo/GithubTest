@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+</head>
+<script src="./Cal/js/jquery-2.2.4.min.js"></script>
+<script src="./Cal/js/jquery-ui.min.js"></script>
+<script src="./Cal/js/jquery.easing.1.3.js"></script>
+<script src="./Cal/js/cal.js"></script>
+<link rel="stylesheet" href="./Cal/cal.css">
+<body>
+
+
+        <header id="header">
+            <form>
+                <input id="startday" type="text" >~<input id="endday" type="text">
+                <input type="button" value="조회" id="search">
+            </form>
+        </header>
+        <div id="main">
+            <div id="now_date">
+                <h2  id="now_year"><td></td></h2> 년
+                <h2  id="now_month"></h2>
+            </div>
+            
+            <section id="left_section">
+                <table id="calendar_table" border="2px" style="text-align: center;width: 70%;margin: auto;">
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                  
+                </table>
+                
+                <div id="img_div">
+                    <img id="pre_img" src="./Cal/img/pre.png">
+                    <img id="next_img" src="./Cal/img/next.png">
+                </div>
+         
+                <div id="select_day_div">
+                    선택된 일자&nbsp;
+                    <input id="yoil" type="text" >&nbsp;(요일)
+                    <input id="select_year" type="number">년
+                    <input id="select_month" type="number">월
+                    <input id="select_day" type="number">일
+                    <input type="button" value="적용" id="input_select_day">
+                </div>
+             
+            </section>
+            <aside id="right_aside">
+
+
+                <table id="select_day_table" border="2px" style="text-align: center;width: 70%;margin: auto;">
+                    <tr>
+                        <th>일 자</th>
+                        <th>요일</th>
+                        <th>국경일</th>
+                    </tr>
+                </table>
+
+
+            </aside>
+
+        </div>
+    
+</body>
+</html>

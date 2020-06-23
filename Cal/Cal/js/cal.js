@@ -4,6 +4,10 @@ $(document).ready(function() {
 
         $('#now_year').empty();
         $('#now_month').empty();
+
+        $('#calendar_table > tbody').empty();
+        
+        
        
 
         var startdate=document.getElementById("startday").value;
@@ -12,9 +16,9 @@ $(document).ready(function() {
         var enddate = document.getElementById("endday").value;
         var enddate_split=enddate.split("-");
 
-        var year_array = new Array(Array(),Array()); 
-        var month_array = new Array(); 
-        var day_array = new Array();    
+        var year_array = new Array();  //기간 년도 배열
+        var month_array = new Array(); //기간 월 배열
+        var day_array = new Array();    //기간 일 배열
         var leap_year = 0; 
 
         for(var i=Number(startdate_split[0]);i<=enddate_split[0];i++){
@@ -24,8 +28,6 @@ $(document).ready(function() {
         if ((startdate_split[0] % 4 == 0 && startdate_split[0] % 100 != 0) || startdate_split[0] % 400 == 0) {
             leap_year=1;
         } 
-
-
 
         if(startdate_split[0]===enddate_split[0]){
             for(var i=Number(startdate_split[1]);i<=enddate_split[1];i++){
@@ -57,7 +59,7 @@ $(document).ready(function() {
                             day_array.push(j);
                         }
                     }
-                    console.log("시작일"+month_array.length)
+                    console.log("포함 달 수"+month_array.length)
                 }
             }
         }else{
@@ -71,15 +73,33 @@ $(document).ready(function() {
                 for(j=1;j<=12;j++){
                     month_array.push(j); 
                 }
-
             }
         }
+        for(var show_day=0;show_day<=34;show_day++){
+
+            if(show_day==7||show_day==14||show_day==21||show_day==28){
+                $('#calendar_table > tbody:last').append('<tr>');
+            }
+
+            if(day_array[show_day]===undefined){
+                $('#calendar_table > tbody:last').append(
+                    '<td>'+" "+'</td>'
+                );
+            }else{
+                $('#calendar_table > tbody:last').append(
+                    '<td>'+day_array[show_day]+'</td>'
+                );
+            } 
+        }
+        
         
         console.log("일 수 계산"+day_array); 
-        var eng_month;
+
+
+
 
         $('#now_year').append(year_array[0]);
-        $('#now_month').append(eng_month);
+        $('#now_month').append(month_array[0]);
 
     });
 
@@ -110,4 +130,3 @@ $(document).ready(function() {
     
 
 });
-

@@ -6,7 +6,7 @@ $(document).ready(function() {
         $('#now_month').empty();
 
         $('#calendar_table > tbody').empty();
-        
+        $('#select_day_table > tbody').empty();
         
        
 
@@ -16,9 +16,9 @@ $(document).ready(function() {
         var enddate = document.getElementById("endday").value;
         var enddate_split=enddate.split("-");
 
-        var year_array = new Array();  //기간 년도 배열
-        var month_array = new Array(); //기간 월 배열
-        var day_array = new Array();    //기간 일 배열
+        var year_array = new Array();  
+        var month_array = new Array();
+        var day_array = new Array(); 
         var leap_year = 0; 
 
         for(var i=Number(startdate_split[0]);i<=enddate_split[0];i++){
@@ -101,6 +101,13 @@ $(document).ready(function() {
         $('#now_year').append(year_array[0]);
         $('#now_month').append(month_array[0]);
 
+        for(var k=0;k<day_array.length;k++){
+            $('#select_day_table > tbody:last').append(
+                '<tr><td>'+year_array[k]+"-"+month_array[k]+"-"+day_array[k]+'</td><td>'+startdate[0]+'</td><td>'+startdate[0]+'</td></tr>'
+             );
+        }
+      
+
     });
 
     
@@ -122,7 +129,7 @@ $(document).ready(function() {
     $("#input_select_day").on("click",function(){
         
         $('#select_day_table > tbody:last').append(
-           '<tr><td>'+start_year+'</td><td>'+start_month+'</td><td>'+start_day+'</td></tr>'
+           '<tr><td>'+startdate+'</td><td>'+start_month+'</td><td>'+start_day+'</td></tr>'
         );
         
     });
